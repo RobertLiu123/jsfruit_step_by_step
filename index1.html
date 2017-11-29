@@ -19,8 +19,8 @@
             background-size: contain;
         }
     </style>
-css:定位，背景
-js：json，数组，模板字符串，动态创建html元素
+<!--css:定位，背景-->
+<!--js：json，数组，模板字符串，动态创建html元素-->
 
 </head>
 <body>
@@ -96,7 +96,7 @@ js：json，数组，模板字符串，动态创建html元素
         li.style.backgroundImage = `url("images/${fruit[i].src}")`
         li.style.left = fruit[i].left;
         li.style.top = fruit[i].top;
-        li.style.title = fruit[i].content;
+        li.title = fruit[i].content;
         machine.appendChild(li);
 
     }
