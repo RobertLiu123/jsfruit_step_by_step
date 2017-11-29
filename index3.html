@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style: none;
+            position: relative;
+        }
+        li{
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            text-align: center;
+            line-height: 50px;
+            position: absolute;
+
+            background-size: contain;
+        }
+    </style>
+<!--css:定位，背景-->
+<!--js：json，数组，模板字符串，动态创建html元素-->
+
+</head>
+<body>
+<!--定位-->
+<ul id="machine">
+    <!--&lt;!&ndash;顶部&ndash;&gt;-->
+    <!--<li style="left:0px;">桔子</li>-->
+    <!--<li style="left:50px;">铃铛</li>-->
+    <!--<li style="left:100px;">小BA</li>-->
+    <!--<li style="left:150px;">BAR</li>-->
+    <!--<li style="left:200px;background-image: url('images/apple.png');">苹果</li>-->
+    <!--<li style="left:250px;">小苹果</li>-->
+    <!--<li style="left:300px;">椰子</li>-->
+
+    <!--&lt;!&ndash;右侧&ndash;&gt;-->
+    <!--<li style="left:300px;top:50px;">西瓜</li>-->
+    <!--<li style="left:300px;top:100px;">小西瓜</li>-->
+    <!--<li style="left:300px;top:150px;">CHA</li>-->
+    <!--<li style="left:300px;top:200px;background-image: url('images/apple.png');">苹果</li>-->
+    <!--<li style="left:300px;top:250px;">小桔子</li>-->
+    <!--<li style="left:300px;top:300px;">大桔子</li>-->
+
+    <!--&lt;!&ndash;下侧&ndash;&gt;-->
+    <!--<li style="left:250px;top:300px;">铃铛</li>-->
+    <!--<li style="left:200px;top:300px;">小77</li>-->
+    <!--<li style="left:150px;top:300px;">77</li>-->
+    <!--<li style="left:100px;top:300px;background-image: url('images/apple.png');">苹果</li>-->
+    <!--<li style="left:50px;top:300px;">小椰子</li>-->
+    <!--<li style="left:0px;top:300px;">椰子</li>-->
+
+    <!--&lt;!&ndash;左侧&ndash;&gt;-->
+    <!--<li style="left:0px;top:250px;">星星</li>-->
+    <!--<li style="left:0px;top:200px;">小星星</li>-->
+    <!--<li style="left:0px;top:150px;">CHA</li>-->
+    <!--<li style="left:0px;top:100px;background-image: url('images/apple.png');">苹果</li>-->
+    <!--<li style="left:0px;top:50px;">小铃铛</li>-->
+</ul>
+
+<script>
+    //动态创建li元素（left,top,内容,背景图片名字）
+    //json，js数组
+    var fruit = [
+        {left:'0px',top:'0px',content:'桔子',src:'b_orange.png'},
+        {left:'50px',top:'0px',content:'铃铛',src:'b_alarm.png'},
+        {left:'100px',top:'0px',content:'小BA',src:'s_bar.png'},
+        {left:'150px',top:'0px',content:'BA',src:'b_bar.png'},
+        {left:'200px',top:'0px',content:'苹果',src:'b_apple.png'},
+        {left:'250px',top:'0px',content:'小苹果',src:'s_apple.png'},
+        {left:'300px',top:'0px',content:'椰子',src:'b_coconut.png'},
+        {left:'300px',top:'50px',content:'西瓜',src:'b_watermelons.png'},
+        {left:'300px',top:'100px',content:'小西瓜',src:'s_watermelons.png'},
+        {left:'300px',top:'150px',content:'XX',src:'cha.png'},
+        {left:'300px',top:'200px',content:'苹果',src:'b_apple.png'},
+        {left:'300px',top:'250px',content:'小桔子',src:'s_orange.png'},
+        {left:'300px',top:'300px',content:'桔子',src:'b_orange.png'},
+        {left:'250px',top:'300px',content:'铃铛',src:'b_alarm.png'},
+        {left:'200px',top:'300px',content:'小77',src:'s_77.png'},
+        {left:'150px',top:'300px',content:'77',src:'b_77.png'},
+        {left:'100px',top:'300px',content:'苹果',src:'b_apple.png'},
+        {left:'50px',top:'300px',content:'小椰子',src:'s_coconut.png'},
+        {left:'0px',top:'300px',content:'椰子',src:'b_coconut.png'},
+        {left:'0px',top:'250px',content:'星星',src:'b_star.png'},
+        {left:'0px',top:'200px',content:'小星星',src:'s_star.png'},
+        {left:'0px',top:'150px',content:'XX',src:'cha.png'},
+        {left:'0px',top:'100px',content:'苹果',src:'b_apple.png'},
+        {left:'0px',top:'50px',content:'小铃铛',src:'s_alarm.png'},
+    ];
+    var machine = document.getElementById('machine');
+
+    for(var i = 0; i < fruit.length; i++)
+    {
+        var li = document.createElement('li');
+        li.style.backgroundImage = `url("images/${fruit[i].src}")`
+        li.style.left = fruit[i].left;
+        li.style.top = fruit[i].top;
+        li.title = fruit[i].content;
+        machine.appendChild(li);
+
+    }
+
+//    下注部分js实现
+</script>
+</body>
+</html>
