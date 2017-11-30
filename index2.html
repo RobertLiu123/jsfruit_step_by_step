@@ -18,7 +18,7 @@
 
             background-size: contain;
         }
-        #start{
+        #footer{
             position: absolute;
             top:400px;
         }
@@ -30,6 +30,43 @@
             background: rgba(255,0,0,0.4);
             z-index: 10;
         }
+
+        .bet_item
+        {
+            width: 50px;
+            height: 70px;
+            float: left;
+            border: 1px solid red;
+            text-align: center;
+
+            box-sizing: border-box;
+        }
+        .fruit
+        {
+            width: 50px;
+            height: 50px;
+            border-bottom: 1px solid red;
+            box-sizing: border-box;
+        }
+        .bet_num{
+            line-height: 20px;
+        }
+        .clear
+        {
+            clear: both;
+        }
+
+        #bet div:nth-child(1) .fruit
+        {
+            background-image: url("images/b_bar.png");
+            background-size: contain;
+        }
+        /*#bet div:nth-child(2)*/
+        /*{*/
+            /*background-image: url("images/b_77.png");*/
+            /*background-size: contain;*/
+            /*background-repeat: no-repeat;*/
+        /*}*/
     </style>
     <!--css:定位，背景-->
     <!--js：json，数组，模板字符串，动态创建html元素-->
@@ -39,40 +76,56 @@
 <!--定位-->
 <ul id="machine">
     <div id="active"></div>
-    <!--&lt;!&ndash;顶部&ndash;&gt;-->
-    <!--<li style="left:0px;">桔子</li>-->
-    <!--<li style="left:50px;">铃铛</li>-->
-    <!--<li style="left:100px;">小BA</li>-->
-    <!--<li style="left:150px;">BAR</li>-->
-    <!--<li style="left:200px;background-image: url('images/apple.png');">苹果</li>-->
-    <!--<li style="left:250px;">小苹果</li>-->
-    <!--<li style="left:300px;">椰子</li>-->
 
-    <!--&lt;!&ndash;右侧&ndash;&gt;-->
-    <!--<li style="left:300px;top:50px;">西瓜</li>-->
-    <!--<li style="left:300px;top:100px;">小西瓜</li>-->
-    <!--<li style="left:300px;top:150px;">CHA</li>-->
-    <!--<li style="left:300px;top:200px;background-image: url('images/apple.png');">苹果</li>-->
-    <!--<li style="left:300px;top:250px;">小桔子</li>-->
-    <!--<li style="left:300px;top:300px;">大桔子</li>-->
-
-    <!--&lt;!&ndash;下侧&ndash;&gt;-->
-    <!--<li style="left:250px;top:300px;">铃铛</li>-->
-    <!--<li style="left:200px;top:300px;">小77</li>-->
-    <!--<li style="left:150px;top:300px;">77</li>-->
-    <!--<li style="left:100px;top:300px;background-image: url('images/apple.png');">苹果</li>-->
-    <!--<li style="left:50px;top:300px;">小椰子</li>-->
-    <!--<li style="left:0px;top:300px;">椰子</li>-->
-
-    <!--&lt;!&ndash;左侧&ndash;&gt;-->
-    <!--<li style="left:0px;top:250px;">星星</li>-->
-    <!--<li style="left:0px;top:200px;">小星星</li>-->
-    <!--<li style="left:0px;top:150px;">CHA</li>-->
-    <!--<li style="left:0px;top:100px;background-image: url('images/apple.png');">苹果</li>-->
-    <!--<li style="left:0px;top:50px;">小铃铛</li>-->
 </ul>
 
-<input type="button" value="开始" id="start">
+<div id="footer">
+    <div id="score_info">
+        <span>得分：</span>
+        <span>0</span>
+        <span>总分：</span>
+        <span>50</span>
+    </div>
+
+    <div id="bet">
+        <div class="bet_item">
+            <div class="fruit"></div>
+            <div class="bet_num">0</div>
+        </div>
+        <div class="bet_item">
+            <div class="fruit"></div>
+            <div class="bet_num">0</div>
+        </div>
+        <div class="bet_item">
+            <div class="fruit"></div>
+            <div class="bet_num">0</div>
+        </div>
+        <div class="bet_item">
+            <div class="fruit"></div>
+            <div class="bet_num">0</div>
+        </div>
+        <div class="bet_item">
+            <div class="fruit"></div>
+            <div class="bet_num">0</div>
+        </div>
+        <div class="bet_item">
+            <div class="fruit"></div>
+            <div class="bet_num">0</div>
+        </div>
+        <div class="bet_item">
+            <div class="fruit"></div>
+            <div class="bet_num">0</div>
+        </div>
+        <div class="bet_item">
+            <div class="fruit"></div>
+            <div class="bet_num">0</div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <input type="button" value="开始" id="start">
+</div>
+
+
 
 <script>
     //动态创建li元素（left,top,内容,背景图片名字）
@@ -177,6 +230,8 @@
     //    {
     //        iNow = 0;
     //    }
+
+//    下注部分css
 </script>
 </body>
 </html>
