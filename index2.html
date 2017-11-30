@@ -18,14 +18,27 @@
 
             background-size: contain;
         }
+        #start{
+            position: absolute;
+            top:400px;
+        }
+        #active{
+            position: absolute;
+            display: none;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,0,0,0.4);
+            z-index: 10;
+        }
     </style>
-<!--css:定位，背景-->
-<!--js：json，数组，模板字符串，动态创建html元素-->
+    <!--css:定位，背景-->
+    <!--js：json，数组，模板字符串，动态创建html元素-->
 
 </head>
 <body>
 <!--定位-->
 <ul id="machine">
+    <div id="active"></div>
     <!--&lt;!&ndash;顶部&ndash;&gt;-->
     <!--<li style="left:0px;">桔子</li>-->
     <!--<li style="left:50px;">铃铛</li>-->
@@ -58,6 +71,8 @@
     <!--<li style="left:0px;top:100px;background-image: url('images/apple.png');">苹果</li>-->
     <!--<li style="left:0px;top:50px;">小铃铛</li>-->
 </ul>
+
+<input type="button" value="开始" id="start">
 
 <script>
     //动态创建li元素（left,top,内容,背景图片名字）
@@ -101,7 +116,67 @@
 
     }
 
-//    下注部分css布局
+
+    var iNow = 0;
+    var btn = document.getElementById('start');
+    btn.onclick = function () {
+        var steps = parseInt(Math.random()*15)+20;
+
+        var divActive = document.getElementById('active');
+        var timerid = setInterval(
+            function () {
+                steps--;
+                var lis = document.getElementsByTagName('li');
+                var num = lis.length;
+                if(steps===0)
+                {
+                    clearInterval(timerid);
+
+                    var liSel = document.getElementsByClassName('active');
+                    alert(liSel[0].title);
+                }
+                else
+                {
+
+                    for(var i = 0; i < lis.length; i++)
+                    {
+                        if(iNow == i)
+                        {
+                            lis[i].className = 'active';
+                            divActive.style.top = lis[i].offsetTop + 'px';
+                            divActive.style.left = lis[i].offsetLeft + 'px';
+                            divActive.style.display = 'block';
+                        }
+                        else
+                        {
+                            lis[i].className = '';
+                        }
+                    }
+                }
+
+                iNow++;
+                if(iNow>num)
+                {
+                    iNow = 0;
+                }
+
+            },
+            100
+        )
+    }
+    //    点个按钮，转起来，停下后可以得知中奖信息
+    //    涉及js定时器，随机数，map，事件
+    //    background: rgba(255,0,0,0.4);
+    //    z-index: 10;
+    //    #start{
+    //        position: absolute;
+    //        top:400px;
+    //    }
+    //    var steps = parseInt(Math.random()*15)+20;
+    //    if(iNow>num)
+    //    {
+    //        iNow = 0;
+    //    }
 </script>
 </body>
 </html>
